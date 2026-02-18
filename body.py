@@ -1,7 +1,5 @@
 import time
-
 import cv2
-
 from rtmlib import Body, draw_skeleton
 
 # import numpy as np
@@ -18,7 +16,8 @@ body = Body(
     to_openpose=openpose_skeleton,
     mode='balanced',  # balanced, performance, lightweight
     backend=backend,
-    device=device)
+    device=device,
+)
 
 frame_idx = 0
 

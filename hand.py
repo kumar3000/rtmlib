@@ -1,7 +1,5 @@
 import time
-
 import cv2
-
 from rtmlib import Hand, PoseTracker, draw_skeleton
 
 # import numpy as np
