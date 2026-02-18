@@ -36,7 +36,7 @@ while cap.isOpened():
     # need to do some euclidean distance calculation wit the two points
     point_1  = keypoints[0][8] # index finger tip
     point_2 = keypoints[0][4] # thumb tip
-    distance = np.linalg.norm(point_1 - point_2) # max distance is the largest dimension of cam
+    distance = np.linalg.norm(point_1 - point_2)
     activation = distance / MAX_DISTANCE
     if activation > 1:
         activation = 1
