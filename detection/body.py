@@ -1,4 +1,3 @@
-import time
 import cv2
 from rtmlib import Body, draw_skeleton
 
