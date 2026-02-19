@@ -2,7 +2,7 @@ import cv2
 from rtmlib import Hand, PoseTracker, draw_skeleton
 import numpy as np
 import sounddevice as sd
-from .sound import real_time
+import sound.real_time as real_time
 
 device = "cpu"
 backend = "onnxruntime"  # opencv, onnxruntime, openvino
@@ -24,25 +24,6 @@ hand = PoseTracker(
 )
 
 frame_idx = 0
-
-# Configuration
-FS = 44100  # Sampling rate, Hz
-FREQUENCY = 440.0 # Sine frequency, Hz
-VOLUME = 0.5 # Range [0.0, 1.0]
-sine_generator = real_time.generate_sine_wave(FREQUENCY, FS, None)
-
-# --- Activation Logic ---
-print("Activating real-time sine wave audio (press Enter to stop)...")
-
-# Initialize the generator
-sine_generator = real_time.generate_sine_wave(FREQUENCY, FS, None)
-
-# Open a non-blocking stream
-with sd.OutputStream(samplerate=FS, channels=1, callback=real_time.callback):
-    # The stream runs in the background. The main program waits for user input.
-    input()
-
-print("Sound stopped.")
 
 while cap.isOpened():
     success, frame = cap.read()
