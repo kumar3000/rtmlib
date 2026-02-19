@@ -59,7 +59,11 @@ while cap.isOpened():
     )
     cv2.putText(img_show, f"Activation: {activation:.3f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX , 1, (0, 255 * activation, 255 * (1 - activation)), 2)
 
+
+
     img_show = cv2.resize(img_show, (1280, 960))
-    cv2.imshow("RTMLib Index-Thumb Activation TEST 2/17/2026", img_show)
+    cv2.imshow("RTMLib Index Thumb Activation", img_show)
     if cv2.waitKey(1) == ord("q"):
         break
+
+cv2.destroyAllWindows()
